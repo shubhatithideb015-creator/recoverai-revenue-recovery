@@ -1,0 +1,8 @@
+{
+  "name": "Remix RecoverAI",
+  "description": "AI-powered revenue recovery system for identifying, diagnosing, and safely recovering lost payment revenue.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
