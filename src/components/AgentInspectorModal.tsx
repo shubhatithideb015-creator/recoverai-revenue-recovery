@@ -516,10 +516,10 @@ export const AgentInspectorModal: React.FC<AgentInspectorModalProps> = ({
                 <div className="p-3 bg-slate-900 rounded-lg border border-slate-800 flex items-center justify-between">
                   <span className="font-mono text-xs text-slate-300 truncate">
                     {transaction.simulatedPaymentLink ||
-                      `https://rzp.io/i/plink_${transaction.id.replace('txn_', '')}`}
+                      `https://demo.simulated-payment.example/i/plink_${transaction.id.replace('txn_', '')}`}
                   </span>
                   <span className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 shrink-0 ml-2">
-                    Simulated Razorpay Link
+                    Simulated Demo Link
                   </span>
                 </div>
               </div>

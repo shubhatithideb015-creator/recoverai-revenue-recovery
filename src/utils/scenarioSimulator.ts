@@ -50,7 +50,7 @@ export function createSimulatedTransaction(
         description:
           'Customer experienced an NPCI gateway timeout. Dispatch instant Razorpay UPI deep-link via WhatsApp with 0% discount.',
         recommendedDiscountPercent: 0,
-        messageCopy: `Hi ${template.customerName || 'Customer'}, your ₹${amount.toLocaleString('en-IN')} payment to ${template.merchantName || 'Merchant'} was interrupted due to a bank server timeout. Complete your order in 1 tap here: https://rzp.io/i/recov_${rawIdNum}`,
+        messageCopy: `Hi ${template.customerName || 'Customer'}, your ₹${amount.toLocaleString('en-IN')} payment to ${template.merchantName || 'Merchant'} was interrupted due to a bank server timeout. Complete your order in 1 tap here: https://demo.simulated-payment.example/i/recov_${rawIdNum}`,
         delayMinutes: 0,
         expiryHours: 24,
         fallbackStrategy: 'Schedule automated background gateway retry after 15 minutes.',
@@ -119,7 +119,7 @@ export function createSimulatedTransaction(
         description:
           'Direct card retry suppressed by guardrails. Send secure payment credential update portal to customer email.',
         recommendedDiscountPercent: 0,
-        messageCopy: `Hi ${template.customerName || 'Customer'}, your card for ${template.merchantName || 'Merchant'} has expired. Update your billing details securely to keep your subscription active: https://rzp.io/i/recov_${rawIdNum}`,
+        messageCopy: `Hi ${template.customerName || 'Customer'}, your card for ${template.merchantName || 'Merchant'} has expired. Update your billing details securely to keep your subscription active: https://demo.simulated-payment.example/i/recov_${rawIdNum}`,
         delayMinutes: 0,
         expiryHours: 72,
         fallbackStrategy: 'In-app grace period banner upon next user login.',
@@ -188,7 +188,7 @@ export function createSimulatedTransaction(
         description:
           'High-value transaction exceeds ₹50,000. Flagged for operator review before dispatching custom corporate invoice link.',
         recommendedDiscountPercent: 0,
-        messageCopy: `Dear ${template.customerName || 'Customer'}, your ${template.merchantName || 'Enterprise'} invoice payment of ₹${amount.toLocaleString('en-IN')} was interrupted. Your account manager has reserved your cluster renewal: https://rzp.io/i/recov_${rawIdNum}`,
+        messageCopy: `Dear ${template.customerName || 'Customer'}, your ${template.merchantName || 'Enterprise'} invoice payment of ₹${amount.toLocaleString('en-IN')} was interrupted. Your account manager has reserved your cluster renewal: https://demo.simulated-payment.example/i/recov_${rawIdNum}`,
         delayMinutes: 0,
         expiryHours: 72,
         fallbackStrategy: 'Direct phone outreach by enterprise account representative.',
@@ -258,7 +258,7 @@ export function createSimulatedTransaction(
         description:
           'Avoid immediate aggressive retry. Send gentle WhatsApp nudge offering alternate UPI or Pay Later option with 10% coupon.',
         recommendedDiscountPercent: 10,
-        messageCopy: `Hi ${template.customerName || 'Customer'}, your ₹${amount.toLocaleString('en-IN')} payment on ${template.merchantName || 'LearnCode'} was paused. Use code LEARN10 for 10% off when you complete your order: https://rzp.io/i/recov_${rawIdNum}`,
+        messageCopy: `Hi ${template.customerName || 'Customer'}, your ₹${amount.toLocaleString('en-IN')} payment on ${template.merchantName || 'LearnCode'} was paused. Use code LEARN10 for 10% off when you complete your order: https://demo.simulated-payment.example/i/recov_${rawIdNum}`,
         delayMinutes: 30,
         expiryHours: 48,
         fallbackStrategy:
@@ -340,7 +340,7 @@ export function createSimulatedTransaction(
           : 'Adaptive Payment Link Recovery',
         description: `Automated recovery formulation for ₹${amount.toLocaleString('en-IN')} order.`,
         recommendedDiscountPercent: discount,
-        messageCopy: `Hi ${template.customerName || 'Customer'}, resume your ₹${amount.toLocaleString('en-IN')} payment for ${template.merchantName || 'Order'}: https://rzp.io/i/recov_${rawIdNum}`,
+        messageCopy: `Hi ${template.customerName || 'Customer'}, resume your ₹${amount.toLocaleString('en-IN')} payment for ${template.merchantName || 'Order'}: https://demo.simulated-payment.example/i/recov_${rawIdNum}`,
         delayMinutes: 0,
         expiryHours: 48,
         fallbackStrategy: 'Schedule background retry if unresolved.',

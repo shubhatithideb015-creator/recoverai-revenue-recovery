@@ -138,3 +138,16 @@ Settlement Simulator
         │
         ▼
 Audit Trail
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm
+- Gemini API key (optional if the deterministic fallback is used)
+
+### Installation
+
+```bash
+npm install
+```

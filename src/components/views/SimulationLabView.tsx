@@ -153,27 +153,24 @@ export const SimulationLabView: React.FC<SimulationLabViewProps> = ({
   // Primary execution handler: inject webhook & trigger recovery
   const handleTriggerSimulation = async (preset: SimulationPreset) => {
     setIsExecutingSimulation(true);
-    const targetId = preset.transactionTemplate.id || preset.transactionTemplate.transactionId || 'txn_rec_80191';
+    const targetId = preset.transactionTemplate.id || preset.transactionTemplate.transactionId;
     setActiveInjectedTxnId(targetId);
 
     try {
       // 1. Call parent preset injector (ingests into transactions & audit logs)
+      // handleSelectPreset already sets the selected transaction correctly
       onSelectPreset(preset);
 
-      // 2. Allow state to register and grab the transaction
+      // 2. Allow state to register and trigger diagnosis if needed
       setTimeout(async () => {
-        const found = transactions.find((t) => t.id === targetId || t.transactionId === targetId) || transactions[0];
-        if (found) {
-          setActiveInjectedTxnId(found.id);
-          onSelectTransaction(found);
-
-          // If onDiagnose is provided, auto-trigger diagnosis for seamless simulation
-          if (onDiagnose && !found.diagnosis) {
-            try {
-              await onDiagnose(found);
-            } catch (diagErr) {
-              console.warn('Auto-diagnosis non-blocking notification:', diagErr);
-            }
+        // Get the currently selected transaction (set by handleSelectPreset)
+        // This ensures we use the newly injected transaction, not a stale one
+        const selected = transactions.find((t) => t.id === targetId || t.transactionId === targetId) || transactions[0];
+        if (selected && onDiagnose && !selected.diagnosis) {
+          try {
+            await onDiagnose(selected);
+          } catch (diagErr) {
+            console.warn('Auto-diagnosis non-blocking notification:', diagErr);
           }
         }
         setIsExecutingSimulation(false);

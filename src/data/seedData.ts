@@ -284,7 +284,7 @@ export const INITIAL_AUDIT_LOGS: AuditLogEntry[] = [
     orderId: 'order_cloud_4910',
     eventType: 'RECOVERY_ACTION_EXECUTED',
     actor: 'RECOVER_AI_AGENT',
-    summary: 'Dispatched secure Razorpay payment method update portal link via Email (https://rzp.io/i/recov_80191).',
+    summary: 'Dispatched secure Razorpay payment method update portal link via Email (https://demo.simulated-payment.example/i/recov_80191).',
     details: {
       traceId: 'trc_a190ef',
       transactionId: 'txn_rec_80191',
@@ -298,10 +298,10 @@ export const INITIAL_AUDIT_LOGS: AuditLogEntry[] = [
       failureCode: 'CARD_EXPIRED',
       decision: 'PAYMENT_METHOD_UPDATE_PORTAL',
       guardrailResult: 'ALL_RULES_PASSED',
-      action: 'DISPATCH_EMAIL_PORTAL: https://rzp.io/i/recov_80191',
+      action: 'DISPATCH_EMAIL_PORTAL: https://demo.simulated-payment.example/i/recov_80191',
       dispatchChannel: 'EMAIL',
       destination: 'aarav.sharma@techflow.in',
-      portalLink: 'https://rzp.io/i/recov_80191',
+      portalLink: 'https://demo.simulated-payment.example/i/recov_80191',
       expiresInHours: 72
     },
     riskLevel: 'SUCCESS',
@@ -414,7 +414,7 @@ export const INITIAL_AUDIT_LOGS: AuditLogEntry[] = [
     orderId: 'order_cart_7718',
     eventType: 'RECOVERY_ACTION_EXECUTED',
     actor: 'RECOVER_AI_AGENT',
-    summary: 'Dispatched 1-Click WhatsApp Pay link (https://rzp.io/i/recov_80192) with 5% reassurance discount.',
+    summary: 'Dispatched 1-Click WhatsApp Pay link (https://demo.simulated-payment.example/i/recov_80192) with 5% reassurance discount.',
     details: {
       traceId: 'trc_b882ac',
       transactionId: 'txn_rec_80192',
@@ -428,10 +428,10 @@ export const INITIAL_AUDIT_LOGS: AuditLogEntry[] = [
       failureCode: 'BAD_REQUEST_GATEWAY_TIMEOUT',
       decision: 'WHATSAPP_NUDGE_WITH_DISCOUNT',
       guardrailResult: 'ALL_RULES_PASSED',
-      action: 'DISPATCH_WHATSAPP_NUDGE: https://rzp.io/i/recov_80192',
+      action: 'DISPATCH_WHATSAPP_NUDGE: https://demo.simulated-payment.example/i/recov_80192',
       dispatchChannel: 'WHATSAPP',
       destination: '+91 99012 34567',
-      paymentLink: 'https://rzp.io/i/recov_80192'
+      paymentLink: 'https://demo.simulated-payment.example/i/recov_80192'
     },
     riskLevel: 'SUCCESS',
     traceId: 'trc_b882ac'
@@ -686,7 +686,7 @@ export const INITIAL_AUDIT_LOGS: AuditLogEntry[] = [
       failureCode: 'PAYMENT_FAILED_INSUFFICIENT_FUNDS',
       decision: 'SCHEDULED_PAYLATER_RECOVERY',
       guardrailResult: 'ALL_RULES_PASSED',
-      action: 'DISPATCH_PAYLATER_LINK: https://rzp.io/i/recov_80194',
+      action: 'DISPATCH_PAYLATER_LINK: https://demo.simulated-payment.example/i/recov_80194',
       dispatchChannel: 'WHATSAPP',
       delayMinutes: 30,
       destination: '+91 97118 90214'
@@ -800,7 +800,7 @@ export const INITIAL_AUDIT_LOGS: AuditLogEntry[] = [
     orderId: 'order_gadgets_3319',
     eventType: 'RECOVERY_ACTION_EXECUTED',
     actor: 'RECOVER_AI_AGENT',
-    summary: 'Dispatched dynamic UPI QR code recovery link via WhatsApp (https://rzp.io/i/recov_80195).',
+    summary: 'Dispatched dynamic UPI QR code recovery link via WhatsApp (https://demo.simulated-payment.example/i/recov_80195).',
     details: {
       traceId: 'trc_e5091c',
       transactionId: 'txn_rec_80195',
@@ -814,10 +814,10 @@ export const INITIAL_AUDIT_LOGS: AuditLogEntry[] = [
       failureCode: 'PAYMENT_AUTHENTICATION_FAILED',
       decision: 'DYNAMIC_UPI_QR_RECOVERY',
       guardrailResult: 'ALL_RULES_PASSED',
-      action: 'DISPATCH_UPI_QR: https://rzp.io/i/recov_80195',
+      action: 'DISPATCH_UPI_QR: https://demo.simulated-payment.example/i/recov_80195',
       dispatchChannel: 'WHATSAPP',
       destination: '+91 98200 44551',
-      paymentLink: 'https://rzp.io/i/recov_80195'
+      paymentLink: 'https://demo.simulated-payment.example/i/recov_80195'
     },
     riskLevel: 'SUCCESS',
     traceId: 'trc_e5091c'
@@ -942,10 +942,10 @@ export const INITIAL_AUDIT_LOGS: AuditLogEntry[] = [
       failureCode: 'TRANSACTION_LIMIT_EXCEEDED_FOR_USER',
       decision: 'MULTI_RAIL_CHECKOUT_SWITCH',
       guardrailResult: 'ALL_RULES_PASSED',
-      action: 'DISPATCH_CHECKOUT_SWITCH: https://rzp.io/i/recov_80196',
+      action: 'DISPATCH_CHECKOUT_SWITCH: https://demo.simulated-payment.example/i/recov_80196',
       dispatchChannel: 'WHATSAPP',
       destination: '+91 99401 22890',
-      paymentLink: 'https://rzp.io/i/recov_80196'
+      paymentLink: 'https://demo.simulated-payment.example/i/recov_80196'
     },
     riskLevel: 'SUCCESS',
     traceId: 'trc_f3198d'

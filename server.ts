@@ -550,13 +550,13 @@ app.post('/api/recover/execute-action', (req, res) => {
       });
     }
 
-    // Generate simulated Razorpay Payment Link or Portal Link
+    // Generate simulated demo payment/portal link (NOT a real Razorpay payment link)
     const linkId = intervention.type === 'PAYMENT_METHOD_UPDATE_PORTAL'
       ? `portal_${(transaction.transactionId || transaction.id || 'recov').replace(/[^a-zA-Z0-9]/g, '').slice(-6)}`
       : `recov_${(transaction.transactionId || transaction.id || 'link').replace(/[^a-zA-Z0-9]/g, '').slice(-6)}`;
     const simulatedPaymentLink = intervention.type === 'PAYMENT_METHOD_UPDATE_PORTAL'
-      ? `https://billing.razorpay.com/portal/${linkId}`
-      : `https://rzp.io/i/${linkId}`;
+      ? `https://demo.simulated-portal.example/portal/${linkId}`
+      : `https://demo.simulated-payment.example/i/${linkId}`;
     const timestamp = new Date().toISOString();
     const traceId = transaction.traceId || `trc_${Math.random().toString(36).substring(2, 10)}`;
 
@@ -569,6 +569,7 @@ app.post('/api/recover/execute-action', (req, res) => {
       executedAt: timestamp,
       traceId,
       transactionId: transaction.transactionId || transaction.id,
+      note: 'SIMULATED - No real payment executed. This is a demo recovery link.',
     };
 
     return res.json({
@@ -576,7 +577,7 @@ app.post('/api/recover/execute-action', (req, res) => {
       executionLog,
       traceId,
       transactionId: transaction.transactionId || transaction.id,
-      message: `Recovery intervention successfully bounded & dispatched via ${intervention.channel}.`,
+      message: `SIMULATED recovery intervention scheduled via ${intervention.channel}. No real Razorpay payment executed - this is a demo environment.`,
     });
   } catch (error: any) {
     console.error('Error in /api/recover/execute-action:', error);

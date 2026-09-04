@@ -577,7 +577,7 @@ export const AgentDrawer: React.FC<AgentDrawerProps> = ({
                       <div className="flex items-center space-x-2 text-[#4edea3] truncate">
                         <Check className="h-3.5 w-3.5 flex-shrink-0" />
                         <span className="truncate">
-                          {transaction.simulatedPaymentLink || `https://rzp.io/i/recov_${transaction.id.replace(/[^a-zA-Z0-9]/g, '')}`}
+                          {transaction.simulatedPaymentLink || `https://demo.simulated-payment.example/i/recov_${transaction.id.replace(/[^a-zA-Z0-9]/g, '')}`}
                         </span>
                       </div>
                       <ExternalLink className="h-3.5 w-3.5 text-[#8e9192] flex-shrink-0 ml-2" />

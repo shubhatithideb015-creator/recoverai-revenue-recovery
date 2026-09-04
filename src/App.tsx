@@ -481,6 +481,12 @@ export default function App() {
 
   // 5. Simulate Customer Payment Settlement
   const handleSettlePayment = (txn: AtRiskTransaction) => {
+    // Idempotency guard: prevent duplicate recovery
+    if (txn.status === 'RECOVERED') {
+      showToast('Transaction already recovered');
+      return;
+    }
+
     const settledAt = new Date().toISOString();
     const updatedTxn: AtRiskTransaction = {
       ...txn,
@@ -526,6 +532,13 @@ export default function App() {
         (t) => t.id === transaction.id || t.transactionId === transaction.transactionId
       );
       if (existingIdx >= 0) {
+        const existingTxn = prev[existingIdx];
+        // Preserve recovered transactions - do not reset them
+        if (existingTxn.status === 'RECOVERED') {
+          showToast('Cannot overwrite recovered transaction');
+          setSelectedTransaction(existingTxn);
+          return prev;
+        }
         const next = [...prev];
         next[existingIdx] = transaction;
         return next;
@@ -554,6 +567,13 @@ export default function App() {
         (t) => t.id === transaction.id || t.transactionId === transaction.transactionId
       );
       if (existingIdx >= 0) {
+        const existingTxn = prev[existingIdx];
+        // Preserve recovered transactions - do not reset them
+        if (existingTxn.status === 'RECOVERED') {
+          showToast('Cannot overwrite recovered transaction');
+          setSelectedTransaction(existingTxn);
+          return prev;
+        }
         const next = [...prev];
         next[existingIdx] = transaction;
         return next;
